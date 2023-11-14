@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <title>Dominic Orlando</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- Google SEO Meta Tags -->
+        <meta name="description" content="Author: Dominic Orlando, Illustrator: Dominic Orlando, Category: Website">
+        <meta name="google-site-verification" content="+nxGUDJ4QpAZ5l9Bsjdi102tLVC21AIh5d1Nl23908vVuFHs34=">
+
+        <!-- Use https:// except for images and css since I don't know how to do it for images or how to add
+        a hash for css defined in style tag and not in external stylesheet-->
+        <meta http-equiv="content-security-policy" 
+            content="default-src https:; 
+                     img-src http:; 
+                     style-src 'self' 'unsafe-inline'; 
+                     font-src http:;
+                     script-src 'self' 'unsafe-inline';
+                     connect-src 'self';
+                     media-src http:;">
+
+        <!-- Facebook SEO Meta Tags Sample -->
+        <meta property="og:url" content="index.html">
+        <meta property="og:type" content="article">
+        <meta property="og:title" content="Dominic Orlando">
+        <meta property="og:description" content="Portfolio Website">
+        
+        <meta name="robots" content="noindex nofollow">
+        <link rel="icon" type="image/x-icon" href="assests/favicon.ico">
+        <link rel="stylesheet" href="css/index.css" media="screen">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+        <style>
+            @font-face {
+                font-family: manrope;
+                src: url(assests/fonts/Manrope-VariableFont_wght.ttf);
+            }
+
+            body {
+                font-family: manrope, sans-serif;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <header>
+                <section id="introduction">
+                    <h1>Dominic Orlando</h1>
+                    <picture title="Dominic Orlando">
+                        <source srcset="assests/IMG_3740_cropped.webp 250w" type="image/webp" sizes="(max-width: 600px) 200px, 300px">
+                        <img alt="Picture of Dominic Orlando" src="assests/IMG_3740_cropped.jpg" height="250" id="bio-picture">
+                    </picture>
+                </section>
+                <section id="navigation">
+                    <details open>
+                        <summary><h2>Channels</h2></summary>
+                        <nav>
+                            <ul>
+                                <li><a href="index.html"># Biography</a></li>
+                                <li><a href="#classes"># Classes</a></li>
+                                <li><a href="projects.html"># Projects</a></li>
+                                <li><a href="experiments.html"># Experiments</a></li>
+                                <li><a href="https://www.linkedin.com/in/dominic-orlando-/" target="_blank"># Linkedin</a></li>
+                                <li><a href="/assests/Resume.pdf" target="_blank"># Resume</a></li>
+                                <li><a href="https://github.com/dom500d" target="_blank"># Github</a></li>
+                            </ul>
+                        </nav>
+                    </details>
+                </section>
+            </header>
+            <footer>
+                <p id="copyright">&copy; <a href="mailto:dorlando@ucsd.edu">Dominic Orlando</a></p>
+            </footer>
+        </div>
+        <main>
+            <section id="bio-section" aria-labelledby="page-header">
+                <!-- Using an article below looks like i can't use the h2 to label the section. This is why I decided to use a div here.
+                I could use a section but I feel like again I then can't use the heading to label the over-arching section here. -->
+                <div id="nav-holder">
+                    <details class="disabled">
+                        <summary>
+                            <h2 id="page-header"> # Biography </h2>
+                        </summary>
+                        <nav>
+                            <ul>
+                                <li><a href="index.html"># Biography</a></li>
+                                <li><a href="index.html#classes"># Classes</a></li>
+                                <li><a href="projects.html"># Projects</a></li>
+                                <li><a href="experiments.html"># Experiments</a></li>
+                                <li><a href="https://www.linkedin.com/in/dominic-orlando-/" target="_blank"># Linkedin</a></li>
+                                <li><a href="/assests/Resume.pdf" target="_blank"># Resume</a></li>
+                                <li><a href="https://github.com/dom500d" target="_blank"># Github</a></li>
+                            </ul>
+                        </nav>
+                    </details>
+                    <hr>
+                </div>
+                <article id="message-wrapper" aria-labelledby="messages-from-dominic">
+                    <h3 class="visually-hidden" id="messages-from-dominic">Messages from Dominic</h3>
+                    <div class="message">
+                        <picture title="Dominic Orlando">
+                            <source srcset="assests/IMG_3740_cropped.webp 250w" type="image/webp" sizes="(max-width: 600px) 200px, 300px">
+                            <img alt="Picture of Dominic Orlando" src="assests/IMG_3740_cropped.jpg" height="250" class="message-pic">
+                        </picture>
+                        <div class="message-content-holder">
+                            <p class="message-sender">Dominic Orlando <time datetime="2023-10-31 21:34:03">9:34pm</time></p>
+                            <p class="message-content">
+                                Hi there, I'm <strong>Dominic Orlando</strong>, a 4th year Electrical Engineering student at UC San Diego. My Bachelor's degree specialization is in
+                                Machine Learning and Controls. I'm currently planning on doing my Masters in Electrical Engineering at UC San Diego as well. My research conecntration 
+                                will be in Machine Learning and Data Science.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="message">
+                        <picture title="Dominic Orlando">
+                            <source srcset="assests/IMG_3740_cropped.webp 250w" type="image/webp" sizes="(max-width: 600px) 200px, 300px">
+                            <img alt="Picture of Dominic Orlando" src="assests/IMG_3740_cropped.jpg" height="250" class="message-pic">
+                        </picture>
+                        <div class="message-content-holder">
+                            <p class="message-sender">Dominic Orlando <time datetime="2023-10-31 21:37:03">9:37pm</time></p>
+                            <table id="classes" class="message-content">
+                                <caption>
+                                    Education Information
+                                </caption>
+                                <colgroup>
+                                    <col span="1" class="left-side">
+                                    <col span="1" class="right-side">
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th colspan="2">Courses Taken</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <a href="https://catalog.ucsd.edu/courses/ECE.html#ece148" target="_blank">
+                                                <p class="bio-classes-link-p"><strong>ECE 148:</strong> Autonomous Vehicles</p>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a href="https://catalog.ucsd.edu/courses/ECE.html#ece176" target="_blank">
+                                                <p class="bio-classes-link-p"><strong>ECE 176:</strong> Deep Learning & Applications</p>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="https://catalog.ucsd.edu/courses/ECE.html#ece176" target="_blank">
+                                                <p class="bio-classes-link-p"><strong>ECE 140A/B:</strong> Product Engineering</p>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a href="https://catalog.ucsd.edu/courses/ECE.html#ece174" target="_blank">
+                                                <p class="bio-classes-link-p"><strong>ECE 174:</strong> Linear and Nonlinear Optimization</p>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="https://catalog.ucsd.edu/courses/ECE.html#ece175a" target="_blank">
+                                                <p class="bio-classes-link-p"><strong>ECE 175A:</strong> M.L. and Pattern Recognition</p>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a href="https://catalog.ucsd.edu/courses/ECE.html#ece171a" target="_blank">
+                                                <p class="bio-classes-link-p"><strong>ECE 171A:</strong> Linear Control Theory</p>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="https://catalog.ucsd.edu/courses/ECE.html#ece101" target="_blank">
+                                                <p class="bio-classes-link-p"><strong>ECE 101:</strong> Linear Systems</p>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a href="https://catalog.ucsd.edu/courses/ECE.html#ece109" target="_blank">
+                                                <p class="bio-classes-link-p"><strong>ECE 109:</strong> Engineering Probability & Stats</p>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="https://catalog.ucsd.edu/courses/ECE.html#ece101" target="_blank">
+                                                <p class="bio-classes-link-p"><strong>ECE 101:</strong> Linear Systems</p>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a href="https://catalog.ucsd.edu/courses/ECE.html#ece109" target="_blank">
+                                                <p class="bio-classes-link-p"><strong>ECE 109:</strong> Engineering Probability & Stats</p>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="https://catalog.ucsd.edu/courses/ECE.html#ece101" target="_blank">
+                                                <p class="bio-classes-link-p"><strong>ECE 101:</strong> Linear Systems</p>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a href="https://catalog.ucsd.edu/courses/ECE.html#ece109" target="_blank">
+                                                <p class="bio-classes-link-p"><strong>ECE 109:</strong> Engineering Probability & Stats</p>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="message">
+                        <picture title="Dominic Orlando">
+                            <source srcset="assests/IMG_3740_cropped.webp 250w" type="image/webp" sizes="(max-width: 600px) 200px, 300px">
+                            <img alt="Picture of Dominic Orlando" src="assests/IMG_3740_cropped.jpg" height="250" class="message-pic">
+                        </picture>
+                        <div class="message-content-holder">
+                            <p class="message-sender">Dominic Orlando <time datetime="2023-10-31 21:41:03">9:41pm</time></p>
+                            <aside class="message-content">
+                                <h3>Outside of Classes: </h3>
+                                <ol>
+                                    <li>President of the UCSD Cycling team</li>
+                                    <li>Former Road Captain of the UCSD Cycling team</li>
+                                    <li>Internship experience (check resume)!</li>
+                                </ol>
+                            </aside>
+                        </div>
+                    </div>
+                    <div class="message">
+                        <picture title="Dominic Orlando">
+                            <source srcset="assests/IMG_3740_cropped.webp 250w" type="image/webp" sizes="(max-width: 600px) 200px, 300px">
+                            <img alt="Picture of Dominic Orlando" src="assests/IMG_3740_cropped.jpg" height="250" class="message-pic">
+                        </picture>
+                        <div class="message-content-holder">
+                            <p class="message-sender">Dominic Orlando <time datetime="2023-10-31 21:45:03">9:45pm</time></p>
+                            <p class="message-content">
+                                Hi there, I'm <strong>Dominic Orlando</strong>, a 4th year Electrical Engineering student at UC San Diego. My Bachelor's degree specialization is in
+                                Machine Learning and Controls. I'm currently planning on doing my Masters in Electrical Engineering at UC San Diego as well. My research conecntration 
+                                will be in Machine Learning and Data Science.
+                            </p>
+                        </div>
+                    </div>  
+                    <div class="message">
+                        <picture title="Dominic Orlando">
+                            <source srcset="assests/IMG_3740_cropped.webp 250w" type="image/webp" sizes="(max-width: 600px) 200px, 300px">
+                            <img alt="Picture of Dominic Orlando" src="assests/IMG_3740_cropped.jpg" height="250" class="message-pic">
+                        </picture>
+                        <div class="message-content-holder">
+                            <p class="message-sender">Dominic Orlando <time datetime="2023-10-31 21:45:03">9:45pm</time></p>
+                            <p class="message-content">
+                                <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+                                    <img style="border:0;width:88px;height:31px;border-radius:0" 
+                                        src="assests/funny-w3c-css-validation.gif"
+                                        alt="Valid CSS!">
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </article>
+                <section id="contact-me" aria-labelledby="contact-header">
+                    <form action="index.html" method="get" id="contact-form">
+                        <h3 id="contact-header">Message Dominic Orlando</h3>
+                        <div id="form-name-email">
+                            <div class="form-name-email-wrapper">
+                                <label id="contact-form-name-label" for="contact-form-name">Name: </label>
+                                <input id="contact-form-name" name="name" type="text" required disabled>
+                            </div>
+                            <div class="form-name-email-wrapper">
+                                <label id="contact-form-email-label" for="contact-form-email">Email: </label>
+                                <input id="contact-form-email" name="email" type="email" required disabled>
+                            </div>
+                        </div>
+                        <div id="form-message">
+                            <label for="contact-form-message">Message: </label>
+                            <input id="contact-form-message" name="message" type="text" required disabled>
+                            <button type="submit" id="submit" disabled>Submit</button>
+                        </div>
+                    </form>
+                </section> 
+            </section>
+        </main>
+        <template>
+            <div class="message">
+                <picture>
+                    <source srcset="https://thispersondoesnotexist.com/">
+                    <img src="assests/no-picture.png" class="message-pic">
+                </picture>
+                <div class="message-content-holder">
+                    <p class="message-sender"><time datetime="2023-10-31 21:34:03"></time></p>
+                    <p class="message-content">
+                    </p>
+                </div>
+            </div>
+        </template>
+    </body>
+</html>

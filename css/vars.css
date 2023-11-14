@@ -1,0 +1,14 @@
+:root {
+    --left-color: purple;
+    --left-text-color: rgb(224, 224, 224);
+    --right-color: rgb(241, 241, 241);
+    --right-text-color: rgb(25, 37, 37);
+    --nav-font-size: 1.5rem;
+    --page-header: rgb(1, 1, 1);
+    --contact-color: rgb(168, 14, 161); 
+    --message-color: var(--right-color);
+    --underline-color: rgb(206, 206, 206);
+    --border-radius: 15px;
+    --nav-background: rgb(151, 151, 151);
+    --dark-mode-background: rgb(69, 69, 69);
+}
