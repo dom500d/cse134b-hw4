@@ -157,6 +157,13 @@ table {
     }
 }
 
+input:user-invalid {
+    border: 2px red solid;
+}
+
+input:valid {
+    border: 2px green solid;
+}
 
 time {
     padding-left: 0.5rem;
@@ -201,6 +208,7 @@ details {
     font-size: var(--nav-font-size, 1rem);
 
     & summary {
+        
         & h2 {
             margin: 0;
             display: inline;
@@ -214,7 +222,13 @@ details {
 details.disabled summary {
     pointer-events: none;
     user-select: none;
-    display: block;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    & label {
+        font-size: 1rem;
+    }
 }
 
 nav {
@@ -304,7 +318,7 @@ header section details summary h2 {
 #contact-form-email-label {
     margin-left: 1rem;
 }
-#contact-form-message {
+#contact-form-comments {
     flex: 1;
 }
 
@@ -375,6 +389,11 @@ main section details {
     height: 3rem;
 }
 
+#mode-switch {
+    pointer-events: all;
+    user-select: auto;
+}
+
 @media screen and (max-width: 970px) {
     h1 {
         font-size: 1.25rem;
@@ -412,6 +431,8 @@ main section details {
                 pointer-events: all;
                 user-select: auto;
                 display: list-item;
+             
+
                 &::marker {
                     content: '=';
                     content: '\2261';
@@ -479,14 +500,14 @@ main section details {
 
 @media (prefers-color-scheme: dark) {
     hr {
-        border-color: white;
+        border-color: var(--left-text-color, azure);
     }
     #page-header {
-        color: white;
+        color: var(--left-text-color, azure);
     }
     html body main {
         background-color: var(--dark-mode-background, gray);
-        color: white;
+        color: var(--left-text-color, azure);
 
         & section > article .message {
             background-color: var(--dark-mode-background, gray);
@@ -494,11 +515,11 @@ main section details {
         }
 
         & table {
-            border-color: white;
+            border-color: var(--left-text-color, azure);
         
             & td {
                 padding: 0.5rem;
-                border-color: white;
+                border-color: var(--left-text-color, azure);
             }
         
             & caption {
