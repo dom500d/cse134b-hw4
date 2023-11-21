@@ -17,7 +17,7 @@
                      style-src 'self' 'unsafe-inline'; 
                      font-src http:;
                      script-src 'self' 'unsafe-inline';
-                     connect-src 'self';
+                     connect-src 'self' https:;
                      media-src http:;">
 
         <!-- Facebook SEO Meta Tags Sample -->
@@ -263,7 +263,10 @@
                 </article>
                 <section id="contact-me" aria-labelledby="contact-header">
                     <form action="https://httpbin.org" method="get" id="contact-form">
-                        <h3 id="contact-header">Message Dominic Orlando</h3>
+                        <div id="form-header">
+                            <h3 id="contact-header">Message Dominic Orlando</h3>
+                            <button id="remove-messages" type="button">Remove messages</button>
+                        </div>
                         <div id="form-name-email">
                             <div class="form-name-email-wrapper">
                                 <label id="contact-form-name-label" for="contact-form-name" title="Your name">Name: </label>
