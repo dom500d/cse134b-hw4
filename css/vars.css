@@ -1,6 +1,6 @@
 :root {
-    --left-color: purple;
-    --left-text-color: rgb(224, 224, 224);
+    --left-color: #a80ea1;
+    --left-text-color: #e0e0e0;
     --right-color: rgb(241, 241, 241);
     --right-text-color: rgb(25, 37, 37);
     --nav-font-size: 1.5rem;

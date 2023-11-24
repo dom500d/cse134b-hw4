@@ -157,12 +157,19 @@ table {
     }
 }
 
-input:user-invalid {
-    border: 2px red solid;
-}
+input {
+    border: 2px black solid;
+    &:user-invalid {
+        border: 2px red solid;
+    }
 
-input:valid {
-    border: 2px green solid;
+    &:user-valid {
+        border: 2px green solid;
+    }
+
+    &:placeholder-shown {
+        font-style: italic;
+    }
 }
 
 time {
@@ -219,17 +226,37 @@ details {
     }
 }
 
-details.disabled summary {
-    pointer-events: none;
-    user-select: none;
+#nav-holder {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: baseline;
+    height: calc(2vh + 1vh + 3rem);
 
-    & label, input {
-        font-size: 1rem;
-        pointer-events: all;
-        user-select: auto;
+    & details {
+        display: inline;
+
+        & div {
+            position:absolute;
+            z-index: 100;
+            background-color: var(--nav-background);
+            top: calc(3rem + 0.5em);
+        }
+
+        & summary h3 {
+            display: inline;
+        }
+
+        &.disabled > summary {
+            pointer-events: none;
+            user-select: none;
+            display: inline;
+    
+            & label, input {
+                font-size: 1rem;
+                pointer-events: all;
+                user-select: auto;
+            }
+        }
     }
 }
 
@@ -399,6 +426,7 @@ main section details {
 
     & h3 {
         margin-left: 0;
+        display: block;
     }
 
     & button {
@@ -449,7 +477,6 @@ main section details {
                 user-select: auto;
                 display: list-item;
              
-
                 &::marker {
                     content: '=';
                     content: '\2261';
@@ -504,7 +531,7 @@ main section details {
         margin-top: 0.5rem;
     }
 }
-
+/* 
 @media (color-gamut: p3) {
     body > div {
         background-color: color(display-p3 0.5 0.2 0.3) !important;
@@ -513,7 +540,7 @@ main section details {
     #contact-me {
         background-color: color(display-p3 0.5 0.2 0.3);
     }
-}
+} */
 
 @media (prefers-color-scheme: dark) {
     hr {
