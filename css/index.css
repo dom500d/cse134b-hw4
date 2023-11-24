@@ -70,6 +70,10 @@ html {
             background-color: var(--right-color);
             color: var(--right-text-color);
 
+            & h2 {
+                margin-left: 1rem;
+            }
+
             & section > article {
                 height: calc(100vh - 10rem);
                 display: flex;
@@ -202,7 +206,7 @@ li {
 
 hr {
     border-style: solid;
-    border-color: var(--page-header, gray);
+    border-color: var(--right-text-color, gray);
     border-width: 0.1em;
     margin: 0;
 }
@@ -234,16 +238,27 @@ details {
 
     & details {
         display: inline;
+        margin-right: 3vw;
 
         & div {
             position:absolute;
             z-index: 100;
             background-color: var(--nav-background);
             top: calc(3rem + 0.5em);
+            padding: 0.25vw;
+
         }
 
-        & summary h3 {
-            display: inline;
+        & label {
+            font-size: 1rem;
+            display: block;
+        }
+
+        & summary { 
+            
+            & h3 {
+                display: inline;
+            }
         }
 
         &.disabled > summary {
@@ -300,12 +315,6 @@ header section details summary h2 {
 #navigation {
     height: 40vh;
     font-size: 1.25rem;
-}
-
-#page-header {
-    color: var(--page-header, rgb(1, 1, 1));
-    margin-left: 1rem;
-    margin-right: 1rem;
 }
 
 #bio-picture {

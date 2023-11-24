@@ -1,8 +1,8 @@
 :root {
     --left-color: #a80ea1;
     --left-text-color: #e0e0e0;
-    --right-color: rgb(241, 241, 241);
-    --right-text-color: rgb(25, 37, 37);
+    --right-color: #f1f1f1;
+    --right-text-color: #192525;
     --nav-font-size: 1.5rem;
     --page-header: rgb(1, 1, 1);
     --contact-color: rgb(168, 14, 161); 
@@ -10,5 +10,5 @@
     --underline-color: rgb(206, 206, 206);
     --border-radius: 15px;
     --nav-background: rgb(151, 151, 151);
-    --dark-mode-background: rgb(69, 69, 69);
+    --dark-mode-background: #6f6d6d;
 }

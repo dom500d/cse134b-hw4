@@ -5,8 +5,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
     let message = form.querySelector('#contact-form-comments');
     let message_holder = document.querySelector('#message-wrapper');
     let root = document.querySelector(':root');
-    let background_color = document.querySelector('#background-color');
-    let text_color = document.querySelector('#text-color');
+    let left_background_color = document.querySelector('#left-background-color');
+    let left_text_color = document.querySelector('#left-text-color');
+    let right_background_color = document.querySelector('#right-background-color');
+    let right_text_color = document.querySelector('#right-text-color');
     let theme_toggle = document.querySelector('#color-theme-toggle');
     let reset_theme_button = document.querySelector('#reset-theme');
 
@@ -16,8 +18,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
     get_existing_messages(700);
     //Maybe not the best thing to be doing, but this at least makes it so the images are different between each other.
 
-    background_color.addEventListener('input', change_color);
-    text_color.addEventListener('input', change_color);
+    left_background_color.addEventListener('input', change_color);
+    left_text_color.addEventListener('input', change_color);
+    right_background_color.addEventListener('input', change_color);
+    right_text_color.addEventListener('input', change_color);
     theme_toggle.addEventListener('input', change_theme);
     reset_theme_button.addEventListener('click', reset_theme);
 
@@ -94,25 +98,50 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
 
     function change_color(event) {
-        if(event.target.id === 'text-color') {
-            if(theme_toggle.checked) {
-                root.style.setProperty('--left-text-color', text_color.value);
-                localStorage.setItem('dark--left-text-color', text_color.value);
+        let x = event.target.id.split('-');
+        let temp = x[1] + '-' + x[2];
+        if(x[0] === 'left') {
+            if(temp === 'text-color') {
+                if(theme_toggle.checked) {
+                    root.style.setProperty('--left-text-color', event.target.value);
+                    localStorage.setItem('dark--left-text-color', event.target.value);
+                } else {
+                    root.style.setProperty('--left-text-color', event.target.value);
+                    localStorage.setItem('--left-text-color', event.target.value);
+                }  
+            } else if(temp === 'background-color') {
+                if(theme_toggle.checked) {
+                    root.style.setProperty('--left-color', event.target.value);
+                    localStorage.setItem('dark--left-color', event.target.value);
+                } else {
+                    root.style.setProperty('--left-color', event.target.value);
+                    localStorage.setItem('--left-color', event.target.value);
+                }
             } else {
-                root.style.setProperty('--left-text-color', text_color.value);
-                localStorage.setItem('--left-text-color', text_color.value);
-            }  
-        } else if(event.target.id === 'background-color') {
-            if(theme_toggle.checked) {
-                root.style.setProperty('--left-color', background_color.value);
-                localStorage.setItem('dark--left-color', background_color.value);
-            } else {
-                root.style.setProperty('--left-color', background_color.value);
-                localStorage.setItem('--left-color', background_color.value);
+                console.log('Something went wrong when changing the color theme');
             }
-        } else {
-            console.log('Something went wrong when changing the color theme');
+        } else if(x[0] ==='right') {
+            if(temp === 'text-color') {
+                if(theme_toggle.checked) {
+                    root.style.setProperty('--right-text-color', event.target.value);
+                    localStorage.setItem('dark--right-text-color', event.target.value);
+                } else {
+                    root.style.setProperty('--right-text-color', event.target.value);
+                    localStorage.setItem('--right-text-color', event.target.value);
+                }  
+            } else if(temp === 'background-color') {
+                if(theme_toggle.checked) {
+                    root.style.setProperty('--right-color', event.target.value);
+                    localStorage.setItem('dark--right-color', event.target.value);
+                } else {
+                    root.style.setProperty('--right-color', event.target.value);
+                    localStorage.setItem('--right-color', event.target.value);
+                }
+            } else {
+                console.log('Something went wrong when changing the color theme');
+            }
         }
+        
     }
 
     function change_theme() {
@@ -124,33 +153,42 @@ document.addEventListener("DOMContentLoaded", (event) => {
     function theme_apply(state) {
         if(state === 'dark') {
             theme_toggle.checked = true;
-                
             root.style.setProperty('--left-color', localStorage.getItem('dark--left-color'));
             root.style.setProperty('--left-text-color', localStorage.getItem('dark--left-text-color'));
+            root.style.setProperty('--right-color', localStorage.getItem('dark--right-color'));
+            root.style.setProperty('--right-text-color', localStorage.getItem('dark--right-text-color'));
         } else if (state === 'light') {
             theme_toggle.checked = false;
-            
             root.style.setProperty('--left-color', localStorage.getItem('--left-color'));
             root.style.setProperty('--left-text-color', localStorage.getItem('--left-text-color'));
+            root.style.setProperty('--right-color', localStorage.getItem('--right-color'));
+            root.style.setProperty('--right-text-color', localStorage.getItem('--right-text-color'));
         }
         apply_computed_style();
-       
     }
 
     function reset_theme() {
         theme_toggle.checked = false;
         root.style.setProperty('--left-color', '#a80ea1');
         root.style.setProperty('--left-text-color', '#e0e0e0');
+        root.style.setProperty('--right-color', '#f1f1f1');
+        root.style.setProperty('--right-text-color', '#192525');
         localStorage.removeItem('--left-color');
         localStorage.removeItem('--left-text-color');
-        localStorage.removeItem('dark--left-color');
-        localStorage.removeItem('dark--left-text-color');
+        localStorage.removeItem('--right-color');
+        localStorage.removeItem('--right-text-color');
+        localStorage.setItem('dark--left-color', '#454545');
+        localStorage.setItem('dark--left-text-color', '#e0e0e0');
+        localStorage.setItem('dark--right-color', '#6f6d6d');
+        localStorage.setItem('dark--right-text-color', '#e0e0e0');
         apply_computed_style();
     }
 
     function apply_computed_style() {
-        background_color.value = getComputedStyle(root).getPropertyValue('--left-color');
-        text_color.value = getComputedStyle(root).getPropertyValue('--left-text-color');
+        left_background_color.value = getComputedStyle(root).getPropertyValue('--left-color');
+        left_text_color.value = getComputedStyle(root).getPropertyValue('--left-text-color');
+        right_background_color.value = getComputedStyle(root).getPropertyValue('--right-color');
+        right_text_color.value = getComputedStyle(root).getPropertyValue('--right-text-color');
     }
 });
 
