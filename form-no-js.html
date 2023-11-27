@@ -67,6 +67,11 @@
 
                 &:placeholder-shown {
                     font-style: italic;
+                    
+                }
+
+                &:out-of-range {
+                    background-color: orange;
                 }
             }
 
@@ -87,7 +92,7 @@
             <output name="email-info"></output>
 
             <label for="contact-form-comments" title="Your comments">Comments: </label>
-            <input id="contact-form-comments" name="comments" type="text" required title="Your comments" placeholder="I love your website!">
+            <input id="contact-form-comments" name="comments" type="text" required title="Allowed: a-z, A-Z, &, !, ., 0-9" placeholder="I love your website!" maxlength="100" pattern="[a-zA-Z ,.@&!]*">
             <output name="comments-error"></output>
             <output name="comments-info"></output>
 
