@@ -82,7 +82,7 @@
         <a href="/index.html">Back to home</a>
         <form action="https://httpbin.org/get" method="get" id="contact-form">
             <label id="contact-form-name-label" for="contact-form-name" title="Your name">Name: </label>
-            <input id="contact-form-name" name="name" type="text" required title="Your name" placeholder="Dominic Orlando">
+            <input id="contact-form-name" name="name" type="text" required title="Allowed: a-z, A-Z, -" placeholder="Dominic Orlando" pattern="[a-zA-Z\- ]*">
             <output name="name-error"></output>
             <output name="name-info"></output>
 
