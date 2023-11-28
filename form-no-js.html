@@ -30,6 +30,11 @@
         <link rel="icon" type="image/x-icon" href="assests/favicon.ico">
     
         <style>
+            @keyframes flash {
+                50% {background: red;}
+                100% {background: white;}
+            }
+
             @font-face {
                 font-family: manrope;
                 src: url(assests/fonts/Manrope-VariableFont_wght.ttf);
@@ -55,7 +60,7 @@
                 margin-top: 5vh;
             }
             
-            input {
+            input, textarea {
                 border: 2px black solid;
                 &:user-invalid {
                     border: 2px red solid;
@@ -67,7 +72,6 @@
 
                 &:placeholder-shown {
                     font-style: italic;
-                    
                 }
 
                 &:out-of-range {
@@ -75,7 +79,14 @@
                 }
             }
 
+            .invalid {
+                animation-name: flash;
+                animation-duration: 0.3s;
+                border: 2px red solid;
+            }
+
         </style>
+        <script src="js/form-validator.js"></script>
     </head>
     <body>
         <h1>Contact Dominic Orlando</h1>
@@ -92,7 +103,7 @@
             <output name="email-info"></output>
 
             <label for="contact-form-comments" title="Your comments">Comments: </label>
-            <input id="contact-form-comments" name="comments" type="text" required title="Allowed: a-z, A-Z, &, !, ., 0-9" placeholder="I love your website!" maxlength="100" pattern="[a-zA-Z ,.@&!]*">
+            <textarea id="contact-form-comments" name="comments" type="text" required title="Allowed: a-z, A-Z, &, !, ., 0-9" placeholder="I love your website!" maxlength="100" pattern="[a-zA-Z ,.@&!]*"></textarea>
             <output name="comments-error"></output>
             <output name="comments-info"></output>
 
