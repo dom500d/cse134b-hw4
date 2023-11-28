@@ -30,6 +30,8 @@
         <link rel="icon" type="image/x-icon" href="assests/favicon.ico">
         <link rel="stylesheet" href="css/index.css" media="screen">
         <link rel="stylesheet" href="css/print.css" media="print">
+
+        <script src="js/message-add.js"></script>
         
         <style>
             /* Testing out certain styles! */
@@ -96,8 +98,36 @@
                             </ul>
                         </nav>
                     </details>
-                    <hr>
+                    <details>
+                        <summary>
+                            <h3>Theme picker</h3>
+                        </summary>
+                        <div>
+                            <label>
+                                Mode Toggle:
+                                <input type="checkbox" id="color-theme-toggle">
+                            </label>
+                            <label>
+                                Left Background Color:
+                                <input type="color" id="left-background-color">
+                            </label>
+                            <label>
+                                Left Text Color:
+                                <input type="color" id="left-text-color">
+                            </label>
+                            <label>
+                                Right Background Color:
+                                <input type="color" id="right-background-color">
+                            </label>
+                            <label>
+                                Right Text Color:
+                                <input type="color" id="right-text-color">
+                            </label>
+                            <button type="button" id="reset-theme">Reset Theme</button>
+                        </div>
+                    </details>
                 </div>
+                <hr>
                 <article id="message-wrapper" aria-labelledby="messages-from-dominic">
                     <h3 class="visually-hidden" id="messages-from-dominic">Messages from Dominic</h3>
                     <div class="message">
@@ -229,22 +259,32 @@
                     </div>  
                 </article>
                 <section id="contact-me" aria-labelledby="contact-header">
-                    <form action="index.html" method="get" id="contact-form">
-                        <h3 id="contact-header">Message Dominic Orlando</h3>
+                    <form action="https://httpbin.org/get" method="get" id="contact-form">
+                        <div id="form-header">
+                            <h3 id="contact-header">Message Dominic Orlando</h3>
+                            <button id="remove-messages" type="button">Remove messages</button>
+                        </div>
                         <div id="form-name-email">
                             <div class="form-name-email-wrapper">
-                                <label id="contact-form-name-label" for="contact-form-name">Name: </label>
-                                <input id="contact-form-name" name="name" type="text" required disabled>
+                                <label id="contact-form-name-label" for="contact-form-name" title="Your name">Name: </label>
+                                <input id="contact-form-name" name="name" type="text" required title="Your name" placeholder="Dominic Orlando">
+                                <output name="name-error"></output>
+                                <output name="name-info"></output>
                             </div>
                             <div class="form-name-email-wrapper">
-                                <label id="contact-form-email-label" for="contact-form-email">Email: </label>
-                                <input id="contact-form-email" name="email" type="email" required disabled>
+                                <label id="contact-form-email-label" for="contact-form-email" title="Your email">Email: </label>
+                                <input id="contact-form-email" name="email" type="email" required title="Your email" placeholder="example@abc.com">
+                                <output name="email-error"></output>
+                                <output name="email-info"></output>
                             </div>
                         </div>
                         <div id="form-message">
-                            <label for="contact-form-message">Message: </label>
-                            <input id="contact-form-message" name="message" type="text" required disabled></input>
-                            <button type="submit" disabled>Submit</button>
+                            <label for="contact-form-comments" title="Your comments">Comments: </label>
+                            <input id="contact-form-comments" name="comments" type="text" required title="Your comments" placeholder="I love your website!">
+                            <output name="comments-error"></output>
+                            <output name="comments-info"></output>
+                            <button type="submit" id="submit">Submit</button>
+                            <input name="possible_bot" type="text" value="true" hidden>
                         </div>
                     </form>
                 </section> 

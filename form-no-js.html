@@ -35,6 +35,11 @@
                 100% {background: white;}
             }
 
+            @keyframes fade {
+                0%, 100% {opacity: 0;}
+                50% {opacity: 1;}
+            }
+
             @font-face {
                 font-family: manrope;
                 src: url(assests/fonts/Manrope-VariableFont_wght.ttf);
@@ -79,10 +84,18 @@
                 }
             }
 
+            textarea {
+                width: 20dvw;
+            }
+
             .invalid {
                 animation-name: flash;
                 animation-duration: 0.3s;
                 border: 2px red solid;
+            }
+
+            .error-message {
+                animation: fade 2s cubic-bezier(0.000, 0.957, 0.250, 1.000);
             }
 
         </style>
@@ -108,7 +121,8 @@
             <output name="comments-info"></output>
 
             <button type="submit" id="submit">Submit</button>
-            <input name="possible_bot" type="text" value="true" hidden>
+            <input name="possible-bot" type="text" value="true" hidden>
+            <input name="form-errors" type="text" hidden>
         </form>
     </body>
 </html>

@@ -244,7 +244,7 @@ details {
             position:absolute;
             z-index: 100;
             background-color: var(--nav-background);
-            top: calc(3rem + 0.5em);
+            top: calc(3rem + 1em);
             padding: 0.25vw;
 
         }
@@ -469,7 +469,7 @@ main section details {
 
     main section div#nav-holder{
         width:100vw;
-        height: calc(1vh + 2vh + 2em);
+        height: calc(1vh + 2vh + 3rem);
 
         .disabled {
             & nav {
