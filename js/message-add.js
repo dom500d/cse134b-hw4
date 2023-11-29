@@ -1,4 +1,13 @@
 document.addEventListener("DOMContentLoaded", (event) => {
+    let theme_picker = document.querySelector('body main section #nav-holder #theme-picker');
+    let div = document.createElement('div');
+    theme_picker.removeChild(theme_picker.querySelector('p'));
+    div.innerHTML = '<label>Mode Toggle:<input type="checkbox" id="color-theme-toggle"></label><label>Left Background Color:<input type="color" id="left-background-color"></label><label>Left Text Color:<input type="color" id="left-text-color"></label><label>Right Background Color:<input type="color" id="right-background-color"></label><label>Right Text Color:<input type="color" id="right-text-color"></label><button type="button" id="reset-theme">Reset Theme</button>';
+    theme_picker.appendChild(div);
+    theme_picker = null;
+    div = null;
+
+
     let form = document.getElementsByTagName('form')[0];
     let name = form.querySelector('#contact-form-name');
     let email = form.querySelector('#contact-form-email');
@@ -12,6 +21,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     let theme_toggle = document.querySelector('#color-theme-toggle');
     let reset_theme_button = document.querySelector('#reset-theme');
 
+    
     let stored_theme = localStorage.getItem('theme') || null;
     theme_apply(stored_theme);
 

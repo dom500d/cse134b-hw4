@@ -17,10 +17,12 @@ window.addEventListener('DOMContentLoaded', () => {
     let fun = false;
 
     let inputs = document.querySelectorAll('input');
-    document.querySelector('textarea').addEventListener('input', check_input);
+    let text_area = document.querySelector('textarea');
+    text_area.addEventListener('input', check_input);
     for(let i = 0; i < inputs.length; i++) {
         inputs[i].addEventListener('input', check_input);
     }
+    
 
     document.addEventListener('keydown', (event) => {
         if(event.key === 'F9') {
@@ -28,6 +30,13 @@ window.addEventListener('DOMContentLoaded', () => {
             console.log(fun ? "Fun mode enabled" : "Fun mode disabled");
         }
     });
+
+    document.querySelector('form').addEventListener('submit', form_submit);
+
+    function form_submit(event) {
+        // event.preventDefault();
+        console.log(event);
+    }
 
     function check_input(event) {
         let id_split = event.target.id.split('-')[2];

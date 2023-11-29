@@ -228,6 +228,14 @@ details {
             cursor: pointer;
         }
     }
+
+    & p {
+        position: absolute;
+        z-index: 1;
+        background-color: grey;
+        top: 2.5em;
+        padding: 0.5em;
+    }
 }
 
 #nav-holder {
@@ -241,10 +249,10 @@ details {
         margin-right: 3vw;
 
         & div {
-            position:absolute;
+            position:relative;
             z-index: 100;
             background-color: var(--nav-background);
-            top: calc(3rem + 1em);
+            margin-top: 1.3vh;
             padding: 0.25vw;
 
         }
@@ -495,6 +503,10 @@ main section details {
                     } */
                 }
             }   
+        }
+
+        #theme-picker > div{
+            margin-top:0.9vh
         }
     }
 
