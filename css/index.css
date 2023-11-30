@@ -238,6 +238,9 @@ details {
     }
 }
 
+#theme-picker {
+    width: 11em;
+}
 #nav-holder {
     display: flex;
     justify-content: space-between;
@@ -252,7 +255,7 @@ details {
             position:relative;
             z-index: 100;
             background-color: var(--nav-background);
-            margin-top: 1.3vh;
+            margin-top: 0.5em;
             padding: 0.25vw;
 
         }

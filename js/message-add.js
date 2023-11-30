@@ -59,11 +59,23 @@ document.addEventListener("DOMContentLoaded", (event) => {
     });
 
     document.getElementById('remove-messages').addEventListener('click', (event) => {
-        localStorage.removeItem('messages');
+        let messages = JSON.parse(localStorage.getItem('messages'));
+        let page = document.querySelector('section div#nav-holder details summary h2').innerHTML.slice(2);
+        let new_messages = [];
+        for(let i = 0; i < messages.length; i++) {
+            if(messages[i].page != page) {
+                new_messages.push(messages[i]);
+            }
+        }
         let nodes = document.querySelectorAll('[data-email]');
         for (let i = 0; i < nodes.length; i++) {
             message_holder.removeChild(nodes[i]);
         }
+        localStorage.setItem('messages', JSON.stringify(new_messages));
+        messages = null;
+        page = null;
+        new_messages = null;
+        nodes = null;
     });
 
     function append_message(name, email, comment, time, time_to_print, image_number, page) {
