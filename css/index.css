@@ -469,7 +469,11 @@ main section details {
     body > div {
         display: none;
     }
-    
+
+    #nav-holder #theme-picker {
+        display: none;
+    }
+  
     #contact-me {
         width: calc(100% - 2rem);
     }
