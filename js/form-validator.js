@@ -39,9 +39,13 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     function check_input(event) {
+        if(event.target.checkValidity()) {
+            event.target.setCustomValidity('You inputted something wrong :/');
+        } else {
+            event.target.setCustomValidity('');
+        }
         let id_split = event.target.id.split('-')[2];
         if(event.target.value.length > 0) {
-            
             if(id_split === 'name') {
                 if(name_exp.test(event.target.value.charAt(event.target.value.length - 1)) === false) {
                     if(fun) {
@@ -73,7 +77,7 @@ window.addEventListener('DOMContentLoaded', () => {
         }
         if(id_split === 'comments') {
             comments_info.innerHTML = `${event.target.getAttribute('maxlength') - event.target.value.length} character(s) left!`;
-        }
+         }
     }
 
     async function mis_input(event) {
