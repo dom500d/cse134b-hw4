@@ -81,32 +81,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
         if (message_list !== null) {
             for(let i = 0; i < message_list.length; i++) {
                 message = message_list[i];
-                console.log(message);
                 append_message(message.name, message.email, message.message, message.time, message.time_to_print, message.img);
             }
         }
         message = null;
         message_list = null;
-    }
-
-    async function get_image_bytes() {
-        await fetch('https://thispersondoesnotexist.com/', {
-            method: 'GET',
-            mode: 'no-cors'
-        }).then(response => {
-            console.log(response);
-        })
-    }
-
-    function get_image() {
-        let image = img.querySelector('img');
-        let canvas = document.createElement('canvas');
-        let context = canvas.getContext('2d');
-        canvas.height = image.naturalHeight;
-        canvas.width = image.naturalWeight;
-        context.drawImage(image, 0, 0, image.naturalWidth, image.naturalHeight);
-        console.log(canvas.toDataURL('image/png'));
-        return canvas.toDataURL();
     }
 
     function change_color(event) {
