@@ -49,7 +49,7 @@ window.addEventListener('DOMContentLoaded', () => {
             if(id_split === 'name') {
                 if(name_exp.test(event.target.value.charAt(event.target.value.length - 1)) === false) {
                     if(fun) {
-                        document.body.innerHTML = 'you have paid for your sins <a href="/form-no-js.html">return</a>';
+                        document.body.innerHTML = 'you have paid for your sins <a href="/form-js.html">return</a>';
                     }
                     name_error.innerHTML = `${event.target.value.charAt(event.target.value.length -1)} isn't allowed in this field`;
                     add_error(event.target.value.charAt(event.target.value.length - 1));
