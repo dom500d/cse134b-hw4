@@ -38,41 +38,49 @@ document.addEventListener("DOMContentLoaded", (event) => {
         let date_time = time.toString();
         let time_print = time.toLocaleString('en-US', {hour: 'numeric', minute: 'numeric', hour12: true});
         let image_number = Math.floor(Math.random() * (15 - 1 + 1) + 1);
-        console.log(image_number);
-        append_message(name.value, email.value, message.value, date_time, time_print, image_number);
+        let page = document.querySelector('section div#nav-holder details summary h2').innerHTML.slice(2);
+        append_message(name.value, email.value, message.value, date_time, time_print, image_number, page);
         let stored_messages = JSON.parse(localStorage.getItem('messages') || null); 
-        let new_message = {'name': name.value, 'email': email.value, 'message': message.value, 'time': date_time, 'time_to_print': time_print, 'img': image_number};
+        let new_message = {'name': name.value, 'email': email.value, 'message': message.value, 'time': date_time, 'time_to_print': time_print, 'img': image_number, 'page': page};
         if (stored_messages === null) {
             stored_messages = [new_message];
-            console.log(stored_messages);
         } else {
             stored_messages = stored_messages.concat(new_message);
         }
         localStorage.setItem('messages', JSON.stringify(stored_messages));
-        // get_image_bytes();
+        time = null;
+        date_time = null;
+        time_print = null;
+        image_number = null;
+        page = null;
+        stored_messages = null;
+        new_message = null;
         form.reset();
     });
 
     document.getElementById('remove-messages').addEventListener('click', (event) => {
         localStorage.removeItem('messages');
         let nodes = document.querySelectorAll('[data-email]');
-        console.log(nodes);
         for (let i = 0; i < nodes.length; i++) {
             message_holder.removeChild(nodes[i]);
         }
     });
 
-    function append_message(name, email, comment, time, time_to_print, image_number) {
-        let clone = document.querySelector('template').content.cloneNode(true);
-        let image = clone.querySelector('picture').querySelector('source');
-        image.setAttribute('srcset', `assets/random/${image_number}.jpg`);
-        clone.querySelector('.message').setAttribute('data-email', email);
-        clone.querySelector('img').setAttribute('alt', `Picture of ${name}`);
-        clone.querySelector('.message-sender').innerHTML = `${name} <time datetime="${time.toString()}">${time_to_print}</time>`;
-        clone.querySelector('.message-content').innerHTML = comment;
-        message_holder.append(clone);
-        image = null;
-        clone = null;
+    function append_message(name, email, comment, time, time_to_print, image_number, page) {
+        if(page === document.querySelector('section div#nav-holder details summary h2').innerHTML.slice(2)) {
+            let clone = document.querySelector('template').content.cloneNode(true);
+            let image = clone.querySelector('picture').querySelector('source');
+            image.setAttribute('srcset', `assets/random/${image_number}.jpg`);
+            clone.querySelector('.message').setAttribute('data-email', email);
+            clone.querySelector('.message').setAttribute('data-page', page);
+            clone.querySelector('img').setAttribute('alt', `Picture of ${name}`);
+            clone.querySelector('.message-sender').innerHTML = `${name} <time datetime="${time.toString()}">${time_to_print}</time>`;
+            clone.querySelector('.message-content').innerHTML = comment;
+            message_holder.append(clone);
+            image = null;
+            clone = null;
+        }
+        
     }
 
     function get_existing_messages() {
@@ -81,7 +89,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         if (message_list !== null) {
             for(let i = 0; i < message_list.length; i++) {
                 message = message_list[i];
-                append_message(message.name, message.email, message.message, message.time, message.time_to_print, message.img);
+                append_message(message.name, message.email, message.message, message.time, message.time_to_print, message.img, message.page);
             }
         }
         message = null;
