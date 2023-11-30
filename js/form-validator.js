@@ -39,11 +39,11 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     function check_input(event) {
-        if(event.target.checkValidity()) {
-            event.target.setCustomValidity('You inputted something wrong :/');
-        } else {
-            event.target.setCustomValidity('');
-        }
+        // if(event.target.checkValidity()) {
+        //     event.target.setCustomValidity('You inputted something wrong :/');
+        // } else {
+        //     event.target.setCustomValidity('');
+        // }
         let id_split = event.target.id.split('-')[2];
         if(event.target.value.length > 0) {
             if(id_split === 'name') {
