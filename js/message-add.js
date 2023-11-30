@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
     theme_picker = null;
     div = null;
 
-
     let form = document.getElementsByTagName('form')[0];
     let name = form.querySelector('#contact-form-name');
     let email = form.querySelector('#contact-form-email');
@@ -20,13 +19,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
     let right_text_color = document.querySelector('#right-text-color');
     let theme_toggle = document.querySelector('#color-theme-toggle');
     let reset_theme_button = document.querySelector('#reset-theme');
-
     
     let stored_theme = localStorage.getItem('theme') || null;
     theme_apply(stored_theme);
 
-    get_existing_messages(700);
-    //Maybe not the best thing to be doing, but this at least makes it so the images are different between each other.
+    get_existing_messages();
 
     left_background_color.addEventListener('input', change_color);
     left_text_color.addEventListener('input', change_color);
@@ -40,9 +37,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
         let time = new Date();
         let date_time = time.toString();
         let time_print = time.toLocaleString('en-US', {hour: 'numeric', minute: 'numeric', hour12: true});
-        let image_data = append_message(name.value, email.value, message.value, date_time, time_print);
+        let image_number = Math.floor(Math.random() * (15 - 1 + 1) + 1);
+        console.log(image_number);
+        append_message(name.value, email.value, message.value, date_time, time_print, image_number);
         let stored_messages = JSON.parse(localStorage.getItem('messages') || null); 
-        let new_message = {'name': name.value, 'email': email.value, 'message': message.value, 'time': date_time, 'time_to_print': time_print, 'img': image_data};
+        let new_message = {'name': name.value, 'email': email.value, 'message': message.value, 'time': date_time, 'time_to_print': time_print, 'img': image_number};
         if (stored_messages === null) {
             stored_messages = [new_message];
             console.log(stored_messages);
@@ -63,27 +62,31 @@ document.addEventListener("DOMContentLoaded", (event) => {
         }
     });
 
-    function append_message(name, email, comment, time, time_to_print) {
+    function append_message(name, email, comment, time, time_to_print, image_number) {
         let clone = document.querySelector('template').content.cloneNode(true);
-        let image = clone.querySelector('picture');
+        let image = clone.querySelector('picture').querySelector('source');
+        image.setAttribute('srcset', `assets/random/${image_number}.jpg`);
         clone.querySelector('.message').setAttribute('data-email', email);
         clone.querySelector('img').setAttribute('alt', `Picture of ${name}`);
         clone.querySelector('.message-sender').innerHTML = `${name} <time datetime="${time.toString()}">${time_to_print}</time>`;
         clone.querySelector('.message-content').innerHTML = comment;
         message_holder.append(clone);
-
-        return image;
+        image = null;
+        clone = null;
     }
 
-    async function get_existing_messages(delay) {
+    function get_existing_messages() {
         let message_list = JSON.parse(localStorage.getItem('messages') || null);
+        let message;
         if (message_list !== null) {
             for(let i = 0; i < message_list.length; i++) {
-                let message = message_list[i];
-                append_message(message.name, message.email, message.message, message.time, message.time_to_print);
-                await new Promise(x => setTimeout(x, delay));
+                message = message_list[i];
+                console.log(message);
+                append_message(message.name, message.email, message.message, message.time, message.time_to_print, message.img);
             }
         }
+        message = null;
+        message_list = null;
     }
 
     async function get_image_bytes() {
@@ -96,7 +99,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
 
     function get_image() {
-        console.log(img);
         let image = img.querySelector('img');
         let canvas = document.createElement('canvas');
         let context = canvas.getContext('2d');
